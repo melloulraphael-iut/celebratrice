@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Profil C · La Grande Célébratrice — Romanella Events</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+  :root {
+    --or: #C9A96E;
+    --noir: #0D0B07;
+    --creme: #F7F0E0;
+    --sable: #1A1208;
+    --moyen: #8B7355;
+    --dore: #E8C97A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--sable);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--creme);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bandeau {
+    width: 100%;
+    background-color: var(--or);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--noir);
+  }
+
+  .page {
+    max-width: 680px;
+    width: 100%;
+    padding: 0 24px 60px;
+  }
+
+  .entete {
+    text-align: center;
+    padding: 48px 0 36px;
+    border-bottom: 1px solid rgba(201,169,110,0.4);
+  }
+
+  .profil-label {
+    font-size: 9px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 16px;
+  }
+
+  .titre {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--creme);
+    margin-bottom: 10px;
+  }
+
+  .sous-titre {
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(247,240,224,0.6);
+    line-height: 1.6;
+  }
+
+  .ornement {
+    font-size: 28px;
+    color: var(--or);
+    opacity: 0.5;
+    margin: 28px 0 0;
+  }
+
+  .portrait {
+    margin: 40px 0 32px;
+    background: rgba(201,169,110,0.07);
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 32px;
+  }
+
+  .portrait-intro {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--moyen);
+    margin-bottom: 18px;
+  }
+
+  .portrait p {
+    font-size: 15px;
+    line-height: 2;
+    color: rgba(247,240,224,0.85);
+    text-align: justify;
+  }
+
+  .portrait p + p { margin-top: 14px; }
+
+  .citation {
+    margin: 0 0 40px;
+    border-left: 3px solid var(--or);
+    padding: 18px 24px;
+    background: rgba(201,169,110,0.07);
+  }
+
+  .citation p {
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--creme);
+  }
+
+  .section-titre {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--moyen);
+    margin-bottom: 24px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .chaises {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .chaise-card {
+    background: rgba(201,169,110,0.07);
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .chaise-icone { font-size: 36px; margin-bottom: 10px; opacity: 0.7; }
+
+  .chaise-nom {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--creme);
+    margin-bottom: 6px;
+  }
+
+  .chaise-desc {
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(247,240,224,0.5);
+    line-height: 1.5;
+  }
+
+  .chaise-role {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-top: 8px;
+  }
+
+  .cta-bloc {
+    background: var(--or);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .cta-bloc p {
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(26,18,8,0.7);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--noir);
+    color: var(--or);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 14px 32px;
+    margin-bottom: 16px;
+  }
+
+  .cta-contacts {
+    margin-top: 20px;
+    border-top: 1px solid rgba(26,18,8,0.2);
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .contact-item { text-align: center; }
+
+  .contact-label {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(26,18,8,0.6);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .contact-val {
+    font-size: 12px;
+    color: rgba(26,18,8,0.8);
+    text-decoration: none;
+  }
+
+  .footer {
+    width: 100%;
+    max-width: 680px;
+    text-align: center;
+    padding: 24px;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--moyen);
+  }
+
+  .footer a { color: var(--or); text-decoration: none; }
+
+  @media (max-width: 500px) {
+    .titre { font-size: 32px; }
+    .chaises { grid-template-columns: 1fr; }
+    .cta-contacts { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bandeau">✦ &nbsp; Romanella Events · Location de chaises vintage · Provence &nbsp; ✦</div>
+
+<div class="page">
+
+  <div class="entete">
+    <p class="profil-label">✦ Profil C · Majorité de C ✦</p>
+    <h1 class="titre">La Grande<br/>Célébratrice</h1>
+    <p class="sous-titre">Vous êtes la fête. Vous voulez du mouvement, de l'abondance,<br/>que chaque table soit une scène.</p>
+    <div class="ornement">❧</div>
+  </div>
+
+  <div class="portrait">
+    <p class="portrait-intro">— &nbsp; Votre portrait</p>
+    <p>Pour vous, un anniversaire n'est pas un événement — c'est une production. Vous pensez en termes d'effet global, d'impression à l'entrée, de moment où les invités retiennent leur souffle. Les détails comptent, oui, mais c'est la puissance d'ensemble qui vous anime.</p>
+    <p>Vous assumez l'audace. L'or sur fond sombre, les dorures qui captent la lumière des bougies, le Fauteuil Victoire multiplié sur chaque rang — c'est votre langage. Une fête qui ressemble à tout le monde n'est pas une fête qui vous ressemble.</p>
+  </div>
+
+  <div class="citation">
+    <p>« Une grande célébration, ça s'annonce. Pas avec des mots — avec une salle qui dit, avant même qu'on ait levé son verre, que ce soir compte. »</p>
+  </div>
+
+  <p class="section-titre">— &nbsp; Votre composition de chaises</p>
+
+  <div class="chaises">
+    <div class="chaise-card">
+      <div class="chaise-icone">🪑</div>
+      <div class="chaise-nom">Vendôme</div>
+      <div class="chaise-desc">Laquée noire, pieds dorés, allure théâtrale</div>
+      <div class="chaise-role">La scène</div>
+    </div>
+    <div class="chaise-card">
+      <div class="chaise-icone">✨</div>
+      <div class="chaise-nom">Dorures</div>
+      <div class="chaise-desc">Accents or sur chaque pièce, cohérence luxueuse</div>
+      <div class="chaise-role">Le fil d'or</div>
+    </div>
+    <div class="chaise-card">
+      <div class="chaise-icone">🪑</div>
+      <div class="chaise-nom">Fauteuil Victoire</div>
+      <div class="chaise-desc">Médaillon sculpté, multiplié sur chaque rang</div>
+      <div class="chaise-role">L'audace répétée</div>
+    </div>
+  </div>
+
+  <div class="cta-bloc">
+    <p>Cette composition vous correspond ? Contactez-nous pour vérifier les disponibilités à votre date et recevoir un devis personnalisé.</p>
+    <a class="cta-btn" href="mailto:frederique@romanellaevents.fr">Demander cette composition →</a>
+    <div class="cta-contacts">
+      <div class="contact-item">
+        <span class="contact-label">Margaux</span>
+        <a href="tel:0652178667" class="contact-val">06 52 17 86 67</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Frédérique</span>
+        <a href="tel:0613541037" class="contact-val">06 13 54 10 37</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:frederique@romanellaevents.fr" class="contact-val">frederique@romanellaevents.fr</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <a href="https://www.instagram.com/romanella_location_chaises">@romanella_location_chaises</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.pinterest.fr/frederiquebergn/romanella/">Pinterest Romanella</a>
+  &nbsp;·&nbsp; © 2026 Romanella Events
+</div>
+
+</body>
+</html>
